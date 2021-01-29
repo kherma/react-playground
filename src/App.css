@@ -10,6 +10,9 @@ body {
   height: 100vh;
   display: grid;
   place-items: center;
+  background-color: #333;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .App {
@@ -18,4 +21,10 @@ body {
 
 .App * {
   margin-bottom: 2rem;
+}
+
+h1 {
+  text-transform: uppercase;
+  border-bottom: 3px solid #fff;
+  padding-bottom: 5px;
 }
