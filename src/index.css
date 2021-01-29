@@ -30,14 +30,20 @@ body {
   margin: 1rem 0;
 }
 
-.book p {
+.book h4 {
   letter-spacing: 5px;
   color: #617d98;
   font-size: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.book p {
+  text-align: start;
 }
 
 @media screen and (min-width: 768px) {
   .bookList {
     grid-template-columns: repeat(3, 1fr);
+    align-items: start;
   }
 }
