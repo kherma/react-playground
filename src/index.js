@@ -1,12 +1,20 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 
-// const Greeting = () => {
-//   return <h1>Hello World</h1>;
-// };
-
-const Greeting = () => {
-  return React.createElement('h1', {}, 'Hello World');
+const Booklist = () => {
+  return (
+    <section>
+      <Book />
+    </section>
+  );
 };
 
-ReactDom.render(<Greeting />, document.getElementById('root'));
+const Book = () => {
+  return (
+    <article>
+      <p>This is a book.</p>
+    </article>
+  );
+};
+
+ReactDom.render(<Booklist />, document.getElementById('root'));
