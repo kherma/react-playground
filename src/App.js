@@ -1,18 +1,10 @@
-import React from 'react';
-import './App.css';
-import Employee from './Components/Employee';
-
-const App = () => {
+import React from 'react'
+function App() {
   return (
-    <div className="App">
-      <h1>Company Directory</h1>
-      <Employee name="Matis" />
-      <Employee name="Metis" />
-      <Employee name="Mitis" />
-      <Employee name="Motis" />
-      <Employee name="Mutis" />
+    <div className='container'>
+      <h2>Advanced Tutorial</h2>
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App
