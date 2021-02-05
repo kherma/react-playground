@@ -3,40 +3,42 @@ import { data } from '../../../data';
 // more components
 // fix - context api, redux (for more complex cases)
 
+const PersonContext = React.createContext();
+// Provider && Consumer
+
 const ContextAPI = () => {
   const [people, setPeople] = useState(data);
+
+  // Function pass through many components until it's reach final component - Prop dilling
   const removePerson = (id) => {
     setPeople((people) => {
       return people.filter((person) => person.id !== id);
     });
   };
   return (
-    <>
-      <h3>prop drilling</h3>
-      <List people={people} removePerson={removePerson} />
-    </>
+    // Use Person Context provider, wrap a whole component
+    <PersonContext.Provider value={{ removePerson, people }}>
+      <h3>context api</h3>
+      <List />
+    </PersonContext.Provider>
   );
 };
 
-const List = ({ people, removePerson }) => {
+const List = () => {
+  const { people } = useContext(PersonContext);
   return (
     <>
       {people.map((person) => {
-        return (
-          <SinglePerson
-            key={person.id}
-            {...person}
-            removePerson={removePerson}
-          />
-        );
+        return <SinglePerson key={person.id} {...person} />;
       })}
     </>
   );
 };
 
-const SinglePerson = ({ id, name, removePerson }) => {
+const SinglePerson = ({ id, name }) => {
+  const { removePerson } = useContext(PersonContext);
   return (
-    <div className='item'>
+    <div className="item">
       <h4>{name}</h4>
       <button onClick={() => removePerson(id)}>remove</button>
     </div>
